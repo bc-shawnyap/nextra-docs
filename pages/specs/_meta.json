@@ -1,0 +1,14 @@
+{
+  "pages": {
+    "title": "pages",
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "redoc": {
+    "title": "redoc",
+    "theme": {
+      "layout": "full"
+    }
+  }
+}
