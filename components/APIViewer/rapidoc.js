@@ -1,7 +1,7 @@
 import { useTheme } from "nextra-theme-docs";
 import { useEffect, useState } from "react";
 
-const RapidocViewer = () => {
+const RapidocViewer = ({ renderStyle = "view" }) => {
   const [componentLoaded, setComponentLoaded] = useState(false);
   const { resolvedTheme } = useTheme();
 
@@ -15,7 +15,7 @@ const RapidocViewer = () => {
     componentLoaded && (
       <rapi-doc
         spec-url="https://raw.githubusercontent.com/bigcommerce/api-specs/master/reference/pages.v3.yml"
-        render-style="view"
+        render-style={renderStyle}
         font-size="large"
         class="bg-white"
         show-header="false"

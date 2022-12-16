@@ -10,6 +10,12 @@
       "layout": "full"
     }
   },
+  "ReadView": {
+    "title": "Pages::ReadView",
+    "theme": {
+      "layout": "raw"
+    }
+  },
   "--Redoc": {
     "title": "Redoc",
     "type": "separator"
