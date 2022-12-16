@@ -1,12 +1,20 @@
 {
+  "--Rapidoc": {
+    "title": "Rapidoc",
+    "type": "separator"
+  },
   "pages": {
-    "title": "pages",
+    "title": "Pages",
     "theme": {
       "layout": "full"
     }
   },
+  "--Redoc": {
+    "title": "Redoc",
+    "type": "separator"
+  },
   "redoc": {
-    "title": "redoc",
+    "title": "Pages",
     "theme": {
       "layout": "full"
     }

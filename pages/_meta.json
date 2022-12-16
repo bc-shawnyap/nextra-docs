@@ -15,6 +15,10 @@
   "about": {
     "display": "hidden"
   },
+  "specs": {
+    "title": "Specs",
+    "type": "page"
+  },
   "documentation": {
     "title": "docs",
     "type": "menu",
