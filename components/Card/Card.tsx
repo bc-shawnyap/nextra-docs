@@ -23,7 +23,7 @@ export default function Card({
 }: CardProps) {
   return (
     <Link className={cardVariants[variant]} href={href}>
-      <div className="relative h-full group cursor-pointer overflow-hidden border rounded-lg text-left border-scale-500 hover:border-scale-700  dark:bg-scale-300 transition">
+      <div className="relative h-full group cursor-pointer overflow-hidden border rounded-lg text-left border-slate-500 hover:border-slate-700 hover:shadow-lg dark:hover:shadow-none dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-600 transition">
         <div className="px-8 py-8 relative flex flex-col h-full gap-6">
           <div className="flex items-center gap-3">
             <h5 className="text-base font-bold">{title}</h5>
