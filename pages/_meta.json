@@ -1,15 +1,40 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
+  "index": {
+    "title": "Introduction",
+    "type": "page",
+    "display": "hidden"
+  },
+  "docs": {
+    "title": "Docs",
     "type": "page"
   },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
+  "blog": {
+    "title": "Blog",
+    "type": "page"
+  },
+  "about": {
+    "display": "hidden"
+  },
+  "documentation": {
+    "title": "docs",
+    "type": "menu",
+    "items": {
+      "Api Docs": {
+        "title": "Api Docs",
+        "href": "/docs"
+      },
+      "Api Reference": {
+        "title": "Api Reference",
+        "href": "https://developer.bigcommerce.com/api-reference"
+      },
+      "Theme Docs": {
+        "title": "Theme Docs",
+        "href": "https://developer.bigcommerce.com/stencil-docs"
+      },
+      "Stencil Object Reference": {
+        "title": "Stencil Object Reference",
+        "href": "https://developer.bigcommerce.com/theme-objects"
+      }
+    }
   }
 }
