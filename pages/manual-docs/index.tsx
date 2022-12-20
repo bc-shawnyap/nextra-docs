@@ -4,6 +4,7 @@ import { MDXRemote } from "next-mdx-remote";
 
 import { getDocBySlug } from "lib/docs";
 import Heading from "@components/Headings";
+import Link from "next/link";
 
 const components = {
   h1: (props) => <Heading variant="h1" {...props} />,
@@ -12,6 +13,7 @@ const components = {
   h4: (props) => <Heading variant="h4" {...props} />,
   h5: (props) => <Heading variant="h5" {...props} />,
   h6: (props) => <Heading variant="h6" {...props} />,
+  a: (props) => <Link {...props} target="_blank" rel="noreferrer" />,
 };
 
 export default function ManualDocsPage({ source }) {
