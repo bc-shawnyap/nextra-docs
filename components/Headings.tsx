@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const variantMappings = {
+const headingMappings = {
   h1: "h1",
   h2: "h2",
   h3: "h3",
@@ -10,8 +10,10 @@ const variantMappings = {
   h6: "h6",
 } as const;
 
+type HeadingVariants = keyof typeof headingMappings;
+
 export type HeadingProps = {
-  variant?: keyof typeof variantMappings;
+  variant?: HeadingVariants;
   className?: string;
   children: React.ReactNode | string;
 };
@@ -23,7 +25,7 @@ export default function Heading({
   ...props
 }: HeadingProps) {
   const { pathname } = useRouter();
-  const Component = variant ? variantMappings[variant] : "p";
+  const Component = variant ? headingMappings[variant] : "p";
 
   const generatedId = children.toString().toLowerCase().split(" ").join("-");
 
