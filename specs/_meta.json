@@ -1,0 +1,29 @@
+{
+  "index": "Overview",
+  "--Rapidoc": {
+    "title": "Rapidoc",
+    "type": "separator"
+  },
+  "pages": {
+    "title": "Pages",
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "ReadView": {
+    "title": "Pages::ReadView",
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "--Redoc": {
+    "title": "Redoc",
+    "type": "separator"
+  },
+  "redoc": {
+    "title": "Pages",
+    "theme": {
+      "layout": "full"
+    }
+  }
+}
