@@ -7,18 +7,18 @@
       "layout": "full"
     }
   },
-  "docs": {
+  "nextra-docs": {
     "title": "Docs",
     "type": "page"
   },
-  "blog": {
+  "nextra-blog": {
     "title": "Blog",
     "type": "page"
   },
   "about": {
     "display": "hidden"
   },
-  "specs": {
+  "nextra-specs": {
     "title": "Specs",
     "type": "page"
   },
