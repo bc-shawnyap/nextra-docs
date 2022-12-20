@@ -27,17 +27,22 @@ export default function Heading({
   const { pathname } = useRouter();
   const Component = variant ? headingMappings[variant] : "p";
 
-  const generatedId = children.toString().toLowerCase().split(" ").join("-");
+  const generatedId =
+    typeof children === "string"
+      ? children.toString().toLowerCase().split(" ").join("-")
+      : null;
 
   return (
-    <Component className="group inline-block" id={generatedId} {...props}>
+    <Component className="group" id={generatedId} {...props}>
       {children}
-      <Link
-        className="opacity-0 inline-block ml-2 group-hover:opacity-100 no-underline transition-opacity"
-        href={pathname + `#${generatedId}`}
-      >
-        <span className="text-inherit text-violet-400">#</span>
-      </Link>
+      {generatedId && (
+        <Link
+          className="opacity-0 inline-block ml-2 group-hover:opacity-100 no-underline transition-opacity"
+          href={pathname + `#${generatedId}`}
+        >
+          <span className="text-inherit text-violet-400">#</span>
+        </Link>
+      )}
     </Component>
   );
 }
