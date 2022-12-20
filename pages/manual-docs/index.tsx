@@ -19,11 +19,9 @@ const components = {
 
 export default function ManualDocsPage({ source }) {
   return (
-    <>
-      <article className="mx-auto prose lg:prose-xl dark:prose-invert">
-        <MDXRemote {...source} components={components} />
-      </article>
-    </>
+    <article className="mx-auto prose lg:prose-xl dark:prose-invert">
+      <MDXRemote {...source} components={components} />
+    </article>
   );
 }
 
