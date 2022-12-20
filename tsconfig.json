@@ -18,7 +18,10 @@
     "paths": {
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"]
-    }
+    },
+    "typeRoots": [
+      "./types"
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": ["node_modules"]
