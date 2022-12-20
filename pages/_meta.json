@@ -23,24 +23,24 @@
     "type": "page"
   },
   "documentation": {
-    "title": "docs",
+    "title": "Demo",
     "type": "menu",
     "items": {
-      "Api Docs": {
-        "title": "Api Docs",
-        "href": "/docs"
+      "RapiDocs": {
+        "title": "RapiDocs",
+        "href": "/specs/pages"
       },
-      "Api Reference": {
-        "title": "Api Reference",
-        "href": "/specs"
+      "RapiDocs::readView": {
+        "title": "RapiDocs::readView",
+        "href": "/specs/ReadView"
       },
-      "Theme Docs": {
-        "title": "Theme Docs",
-        "href": "https://developer.bigcommerce.com/stencil-docs"
+      "Redoc": {
+        "title": "Redoc",
+        "href": "/specs/redoc"
       },
-      "Stencil Object Reference": {
-        "title": "Stencil Object Reference",
-        "href": "https://developer.bigcommerce.com/theme-objects"
+      "Manual": {
+        "title": "Manual",
+        "href": "/manual-docs"
       }
     }
   }
