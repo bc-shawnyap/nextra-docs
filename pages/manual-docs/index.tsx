@@ -7,7 +7,7 @@ import { getDocBySlug } from "lib/docs";
 export default function ManualDocsPage({ source }) {
   return (
     <>
-      <article className="mx-auto prose lg:prose-xl">
+      <article className="mx-auto prose lg:prose-xl dark:prose-invert">
         <MDXRemote {...source} />
       </article>
     </>
