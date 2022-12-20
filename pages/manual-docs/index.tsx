@@ -5,6 +5,7 @@ import { MDXRemote } from "next-mdx-remote";
 import { getDocBySlug } from "lib/docs";
 import Heading from "@components/Headings";
 import Link from "next/link";
+import { getLayout } from "@components/Layouts/PrimaryLayout";
 
 const components = {
   h1: (props) => <Heading variant="h1" {...props} />,
@@ -25,6 +26,8 @@ export default function ManualDocsPage({ source }) {
     </>
   );
 }
+
+ManualDocsPage.getLayout = getLayout;
 
 export const getStaticProps: GetStaticProps = async () => {
   const mdxSource = await getDocBySlug(`about-our-api`);
