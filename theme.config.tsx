@@ -1,9 +1,21 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import { useRouter } from "next/router";
+
 import Logo from "@components/shared/Logo";
 import ExtractedThemeSwitch from "@components/ThemeSwitch";
 
 const config: DocsThemeConfig = {
+  useNextSeoProps() {
+    const { route } = useRouter();
+    if (route !== "/") {
+      return route !== "/"
+        ? {
+            titleTemplate: "%s – BigCommerce Docs",
+          }
+        : { titleTemplate: "BigCommerce Docs" };
+    }
+  },
   primaryHue: {
     light: 223,
     dark: 205,
