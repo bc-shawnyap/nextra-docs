@@ -1,6 +1,7 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 import Logo from "@components/shared/Logo";
+import ExtractedThemeSwitch from "@components/ThemeSwitch";
 
 const config: DocsThemeConfig = {
   primaryHue: {
@@ -8,6 +9,9 @@ const config: DocsThemeConfig = {
     dark: 205,
   },
   navigation: true,
+  navbar: {
+    extraContent: <ExtractedThemeSwitch />,
+  },
   banner: {
     dismissible: true,
     key: "new-banner-v1",
@@ -50,6 +54,7 @@ const config: DocsThemeConfig = {
     ),
   },
   gitTimestamp: "",
+  darkMode: false,
 };
 
 export default config;
