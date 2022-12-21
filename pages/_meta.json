@@ -41,6 +41,10 @@
       "Manual": {
         "title": "Manual",
         "href": "/manual-docs"
+      },
+      "GH Docs": {
+        "title": "GH Docs",
+        "href": "/docs"
       }
     }
   }
