@@ -5,7 +5,6 @@ import { getLayout } from "@components/Layouts/PrimaryLayout";
 import { getGithubRepoContents } from "lib/github";
 import CardGrid from "@components/Card/CardGrid";
 import Card from "@components/Card/Card";
-import ErrorBoundary from "@components/ErrorBoundary";
 
 const GithubDocsIndexPage = ({ contents, tree }) => {
   return (
