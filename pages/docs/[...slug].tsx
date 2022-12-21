@@ -52,7 +52,9 @@ const DocsPages = ({ contents, slugs }) => {
       {getSidebarTree && (
         <SidebarTreeView basePath={slugs[0]} items={sidebarTree} />
       )}
-      <MDX source={contents.content} />
+      <section className="my-4">
+        <MDX source={contents.content} />
+      </section>
     </>
   );
 };
@@ -64,14 +66,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
       path: "docs",
     });
 
-    const paths = contents.map((content) => ({
-      params: {
-        slug: [content.path],
-      },
-    }));
+    let paths = contents
+      ? contents.map?.((content) => ({
+          params: {
+            slug: [content.path],
+          },
+        }))
+      : [];
 
     return {
-      paths,
+      paths: paths,
       fallback: "blocking",
     };
   } catch (error) {

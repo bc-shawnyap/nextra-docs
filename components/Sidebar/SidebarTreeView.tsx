@@ -30,7 +30,7 @@ export default function SidebarTreeView({
     <div className="bg-slate-100 dark:bg-slate-800 dark:text-white p-4">
       <ul className="flex flex-col gap-2">
         {items?.map((item) => (
-          <li>
+          <li key={item.path}>
             {item.type === "tree" ? (
               <>
                 <span className="inline-block font-bold capitalize">
