@@ -1,5 +1,3 @@
-import { getLayout as getSiteLayout } from "./SiteLayout";
-
 import type { ReactNode } from "react";
 import type { ComponentWithChildProp } from "types/global";
 import Navbar from "@components/Navbar";
@@ -21,5 +19,6 @@ export default function PrimaryLayout({
   );
 }
 
-export const getLayout = (page: ReactNode) =>
-  getSiteLayout(<PrimaryLayout>{page}</PrimaryLayout>);
+export const getLayout = (page: ReactNode) => (
+  <PrimaryLayout>{page}</PrimaryLayout>
+);

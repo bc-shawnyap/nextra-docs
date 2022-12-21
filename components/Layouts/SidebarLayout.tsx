@@ -9,7 +9,7 @@ type SidebarLayoutProps = {
 export default function SidebarLayout({
   children,
 }: ComponentWithChildProp<SidebarLayoutProps>) {
-  return <main className="grid grid-cols-2">{children}</main>;
+  return <div className="grid grid-cols-[300px_1fr] w-full">{children}</div>;
 }
 
 export const getLayout = (page: any) =>
