@@ -11,25 +11,7 @@ import MDX from "@components/MDX";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkGfm from "remark-gfm";
 import remarkComment from "remark-comment";
-
-const options = {
-  // Use one of Shiki's packaged themes
-  theme: "one-dark-pro",
-  onVisitLine(node) {
-    // Prevent lines from collapsing in `display: grid` mode, and
-    // allow empty lines to be copy/pasted
-    if (node.children.length === 0) {
-      node.children = [{ type: "text", value: " " }];
-    }
-  },
-  // Feel free to add classNames that suit your docs
-  onVisitHighlightedLine(node) {
-    node.properties.className.push("highlighted");
-  },
-  onVisitHighlightedWord(node) {
-    node.properties.className = ["word"];
-  },
-};
+import { rehypePrettyCodeOptions } from "lib/rehypePrettyCode";
 
 const getSidebarTree = async (slug: string) => {
   const response = await fetch(`/api/github?slug=${slug}`);
@@ -66,13 +48,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
       path: "docs",
     });
 
-    let paths = contents
+    let paths = Array.isArray(contents)
       ? contents.map?.((content) => ({
           params: {
             slug: [content.path],
           },
         }))
-      : [];
+      : [{ params: { slug: ["api-docs"] } }];
 
     return {
       paths: paths,
@@ -114,7 +96,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       Buffer.from(contents.content, "base64").toString(),
       {
         mdxOptions: {
-          rehypePlugins: [[rehypePrettyCode, options]],
+          rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
           remarkPlugins: [remarkGfm, remarkComment],
         },
       }
