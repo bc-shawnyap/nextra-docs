@@ -39,7 +39,7 @@ export default function SidebarTreeView({
                 <hr />
               </>
             ) : (
-              <Link href={`${basePath ?? ""}/${item.path}`}>
+              <Link href={`${basePath ?? ""}/${item.path}`} prefetch={false}>
                 {item.path.split("/").pop()}
               </Link>
             )}
