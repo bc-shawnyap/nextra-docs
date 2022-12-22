@@ -96,7 +96,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       Buffer.from(contents.content, "base64").toString(),
       {
         mdxOptions: {
-          rehypePlugins: [[rehypePrettyCode]],
+          rehypePlugins: [],
           remarkPlugins: [remarkGfm, remarkComment],
         },
       }
