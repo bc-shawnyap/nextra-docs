@@ -3,12 +3,11 @@ import type { GetStaticPaths, GetStaticProps } from "next";
 import { getLayout } from "@components/Layouts/SidebarLayout";
 import SidebarTreeView from "@components/Sidebar/SidebarTreeView";
 
-import { getGithubRepoContents } from "lib/github";
+import { getRepoContentsWithOctokit } from "lib/github";
 import { useEffect } from "react";
 import { useState } from "react";
 import { serialize } from "next-mdx-remote/serialize";
 import MDX from "@components/MDX";
-import rehypePrettyCode from "rehype-pretty-code";
 import remarkGfm from "remark-gfm";
 import remarkComment from "remark-comment";
 import rehypeSlug from "rehype-slug";
@@ -48,10 +47,7 @@ const DocsPages = ({ contents, slugs }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const contents = await getGithubRepoContents({
-      repositoryName: "dev-docs",
-      path: "docs",
-    });
+    const { data: contents } = await getRepoContentsWithOctokit("docs");
 
     let paths = Array.isArray(contents)
       ? contents.map?.((content) => ({
@@ -81,10 +77,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slugs = Array.isArray(slug) ? slug : [slug];
   const paths = slugs.join("/");
 
-  const contents = await getGithubRepoContents({
-    repositoryName: "dev-docs",
-    path: `docs/${paths}`,
-  });
+  const { data: contents } = await getRepoContentsWithOctokit(`docs/${paths}`);
 
   if (!contents) {
     return {
@@ -97,6 +90,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   if (!Array.isArray(contents) && contents?.content) {
+    const pattern = /(\{\{([^}]*)\}\})/g;
+
     contents.content = await serialize(
       Buffer.from(contents.content, "base64").toString(),
       {

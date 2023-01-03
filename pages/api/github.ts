@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { getGithubRepoContents, getGitTreeWithSHA1 } from "lib/github";
+import { getRepoContentsWithOctokit, getTreeWithOctokit } from "lib/github";
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,20 +11,21 @@ export default async function handler(
     method,
   } = req;
   if (method !== "GET") return res.status(400);
+  try {
+    const { data: contents } = await getRepoContentsWithOctokit("docs");
+    const routeFound = contents?.find?.((content) => slug === content.name);
 
-  const contents = await getGithubRepoContents({
-    repositoryName: "dev-docs",
-    path: "docs",
-  });
+    if (!routeFound) {
+      throw {
+        status: 404,
+        message: "Path not found",
+      };
+    }
 
-  const routeFound = contents.find((content) => slug === content.name);
+    const response = await getTreeWithOctokit(routeFound.sha);
 
-  const { tree } = routeFound
-    ? await getGitTreeWithSHA1({
-        repositoryName: "dev-docs",
-        SHA1: routeFound.sha,
-      })
-    : null;
-
-  res.status(200).json({ tree });
+    return res.status(200).json({ tree: response.data.tree });
+  } catch (error) {
+    return res.status(error.status).json(error);
+  }
 }

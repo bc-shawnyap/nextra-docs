@@ -1,42 +1,32 @@
-const GH_API_BASE_URL = `https://api.github.com`;
-const config = {
+import { Octokit } from "octokit";
+const octokit = new Octokit({ auth: process.env.GH_API_AUTH_TOKEN });
+
+const octokitConfig = {
   owner: "bigcommerce",
+  repo: "dev-docs",
 } as const;
 
-const fetchConfig = {
-  headers: {
-    accept: "application/vnd.github+json",
-    Authorization: process.env.GH_API_AUTH_TOKEN,
-    "X-GitHub-Api-Version": "2022-11-28",
-  },
-};
-
-export const getGithubRepoContents = async ({
-  repositoryName,
-  path,
-}: {
-  repositoryName: string;
-  path: string;
-}) => {
-  const repoResponse = await fetch(
-    `${GH_API_BASE_URL}/repos/${config.owner}/${repositoryName}/contents/${path}`,
-    fetchConfig
+export const getRepoContentsWithOctokit = async (path: string) => {
+  const response = await octokit.request(
+    "GET /repos/{owner}/{repo}/contents/{path}{?ref}",
+    {
+      ...octokitConfig,
+      path,
+    }
   );
 
-  return await repoResponse.json();
+  return response;
 };
 
-export const getGitTreeWithSHA1 = async ({
-  repositoryName,
-  SHA1,
-}: {
-  repositoryName: string;
-  SHA1: string;
-}) => {
-  const repoResponse = await fetch(
-    `${GH_API_BASE_URL}/repos/${config.owner}/${repositoryName}/git/trees/${SHA1}?recursive=true`,
-    fetchConfig
+export const getTreeWithOctokit = async (SHA1: string) => {
+  const response = await octokit.request(
+    "GET /repos/{owner}/{repo}/git/trees/{tree_sha}{?recursive}",
+    {
+      ...octokitConfig,
+      tree_sha: SHA1,
+      recursive: true,
+    }
   );
 
-  return await repoResponse.json();
+  return response;
 };

@@ -2,16 +2,16 @@ import type { GetStaticProps } from "next";
 
 import { getLayout } from "@components/Layouts/PrimaryLayout";
 
-import { getGithubRepoContents } from "lib/github";
+import { getRepoContentsWithOctokit } from "lib/github";
 import CardGrid from "@components/Card/CardGrid";
 import Card from "@components/Card/Card";
 
-const GithubDocsIndexPage = ({ contents, tree }) => {
+const GithubDocsIndexPage = ({ contents }) => {
   return (
     <>
       <div className="container mx-auto">
         <CardGrid>
-          {contents.map?.((content) => (
+          {contents?.map?.((content) => (
             <Card
               key={content.sha}
               title={content.name}
@@ -28,10 +28,7 @@ const GithubDocsIndexPage = ({ contents, tree }) => {
 GithubDocsIndexPage.getLayout = getLayout;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const contents = await getGithubRepoContents({
-    repositoryName: "dev-docs",
-    path: "docs",
-  });
+  const { data: contents } = await getRepoContentsWithOctokit("docs");
 
   return {
     props: {
