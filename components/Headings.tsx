@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-
 const headingMappings = {
   h1: "h1",
   h2: "h2",
@@ -24,25 +21,11 @@ export default function Heading({
   children,
   ...props
 }: HeadingProps) {
-  const { pathname } = useRouter();
   const Component = variant ? headingMappings[variant] : "p";
 
-  const generatedId =
-    typeof children === "string"
-      ? children.toString().toLowerCase().split(" ").join("-")
-      : null;
-
   return (
-    <Component className="group" id={generatedId} {...props}>
+    <Component className="group" {...props}>
       {children}
-      {generatedId && (
-        <Link
-          className="opacity-0 inline-block ml-2 group-hover:opacity-100 no-underline transition-opacity"
-          href={pathname + `#${generatedId}`}
-        >
-          <span className="text-inherit text-violet-400">#</span>
-        </Link>
-      )}
     </Component>
   );
 }
