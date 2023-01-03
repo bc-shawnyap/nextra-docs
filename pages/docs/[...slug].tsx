@@ -52,7 +52,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     let paths = Array.isArray(contents)
       ? contents.map?.((content) => ({
           params: {
-            slug: [content.path],
+            slug: [content.name],
           },
         }))
       : [{ params: { slug: ["api-docs"] } }];
@@ -62,7 +62,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
       fallback: "blocking",
     };
   } catch (error) {
-    console.log(error);
     return {
       paths: [],
       fallback: "blocking",
