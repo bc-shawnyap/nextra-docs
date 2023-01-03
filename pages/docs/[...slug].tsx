@@ -32,7 +32,10 @@ const DocsPages = ({ contents, slugs }) => {
   return (
     <>
       {getSidebarTree && (
-        <SidebarTreeView basePath={slugs[0]} items={sidebarTree} />
+        <SidebarTreeView
+          basePath={`/docs${slugs?.[0] ? `/${slugs[0]}` : ""}`}
+          items={sidebarTree}
+        />
       )}
       <section className="my-4">
         <MDX source={contents.content} />

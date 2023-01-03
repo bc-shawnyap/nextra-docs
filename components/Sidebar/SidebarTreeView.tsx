@@ -1,4 +1,9 @@
-import Link from "next/link";
+import { useMemo } from "react";
+
+import SidebarItems from "./SidebarItems";
+
+import { treeify } from "lib/treeify";
+
 type Item = {
   path: string;
   url: string;
@@ -7,45 +12,28 @@ type Item = {
 
 interface SidebarTreeViewProps {
   items: Item[];
-  onlyType?: "tree" | "blob";
   basePath?: string;
 }
-
-const treeify = (items) => {
-  items.forEach((item) => {
-    item.split("/").reduce((a, path) => {}, []);
-  });
-};
 
 export default function SidebarTreeView({
   items,
   basePath,
-  onlyType,
 }: SidebarTreeViewProps) {
-  if (onlyType) {
-    items = items.filter((item) => item.type === onlyType);
-  }
+  const treeItems: Item[] = useMemo(() => treeify(items), [items]);
 
   return (
-    <div className="bg-slate-100 dark:bg-slate-800 dark:text-white p-4">
-      <ul className="flex flex-col gap-2">
-        {items?.map((item) => (
-          <li key={item.path}>
-            {item.type === "tree" ? (
-              <>
-                <span className="inline-block font-bold capitalize">
-                  {item.path}
-                </span>
-                <hr />
-              </>
-            ) : (
-              <Link href={`${basePath ?? ""}/${item.path}`} prefetch={false}>
-                {item.path.split("/").pop()}
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <aside className="bg-slate-100 dark:bg-slate-800 dark:text-white p-4 overflow-auto]">
+      {items && (
+        <ul className="flex flex-col">
+          {treeItems.map((item) => (
+            <SidebarItems
+              key={`${item.path}__${item.type}`}
+              item={item}
+              basePath={basePath}
+            />
+          ))}
+        </ul>
+      )}
+    </aside>
   );
 }
