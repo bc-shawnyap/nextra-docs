@@ -1,5 +1,6 @@
 import Heading from "@components/Headings";
 import { MDXRemote } from "next-mdx-remote";
+import Image from "next/image";
 import Link from "next/link";
 
 const components = {
@@ -9,7 +10,16 @@ const components = {
   h4: (props) => <Heading variant="h4" {...props} />,
   h5: (props) => <Heading variant="h5" {...props} />,
   h6: (props) => <Heading variant="h6" {...props} />,
-  a: (props) => <Link {...props} target="_blank" rel="noreferrer" />,
+  a: (props) => <Link {...props} />,
+  img: (props) => (
+    <Image
+      className="w-full h-auto"
+      height={0}
+      width={0}
+      sizes="100vw"
+      {...props}
+    />
+  ),
 };
 
 export default function MDX({ source }) {
