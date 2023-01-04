@@ -1,6 +1,6 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 
-import { getLayout } from "@components/Layouts/SidebarLayout";
+import { Aside, Content, getLayout } from "@components/Layouts/SidebarLayout";
 import SidebarTreeView from "@components/Sidebar/SidebarTreeView";
 
 import { getRepoContentsWithOctokit } from "lib/github";
@@ -13,6 +13,7 @@ import remarkComment from "remark-comment";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { h, s } from "hastscript";
+import Footer from "@components/Footer";
 
 const getSidebarTree = async (slug: string) => {
   const response = await fetch(`/api/github?slug=${slug}`);
@@ -32,15 +33,15 @@ const DocsPages = ({ contents, slugs }) => {
 
   return (
     <>
-      {getSidebarTree && (
+      <Aside>
         <SidebarTreeView
           basePath={`/docs${slugs?.[0] ? `/${slugs[0]}` : ""}`}
           items={sidebarTree}
         />
-      )}
-      <section className="my-4">
+      </Aside>
+      <Content>
         <MDX source={contents.content} />
-      </section>
+      </Content>
     </>
   );
 };

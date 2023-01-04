@@ -16,7 +16,7 @@ export default function MDX({ source }) {
   if (!source) return null;
 
   return (
-    <article className="mx-auto prose lg:prose-xl dark:prose-invert">
+    <article className="mx-auto prose lg:prose-xl dark:prose-invert px-6 lg:px-4 py-4">
       <MDXRemote {...source} components={components} />
     </article>
   );

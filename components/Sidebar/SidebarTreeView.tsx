@@ -22,18 +22,16 @@ export default function SidebarTreeView({
   const treeItems: Item[] = useMemo(() => treeify(items), [items]);
 
   return (
-    <aside className="bg-slate-100 dark:bg-slate-800 dark:text-white p-4 overflow-auto]">
-      {items && (
-        <ul className="flex flex-col">
-          {treeItems.map((item) => (
-            <SidebarItems
-              key={`${item.path}__${item.type}`}
-              item={item}
-              basePath={basePath}
-            />
-          ))}
-        </ul>
-      )}
-    </aside>
+    items && (
+      <ul className="flex flex-col">
+        {treeItems.map((item) => (
+          <SidebarItems
+            key={`${item.path}__${item.type}`}
+            item={item}
+            basePath={basePath}
+          />
+        ))}
+      </ul>
+    )
   );
 }
