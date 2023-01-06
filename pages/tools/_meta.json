@@ -1,0 +1,39 @@
+{
+  "*": {
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": true,
+      "toc": true,
+      "pagination": false
+    }
+  },
+  "index": {
+    "title": "Tools & Resources",
+    "display": "hidden"
+  },
+  "Api Client": {
+    "title": "Api Client",
+    "href": "#api-clients"
+  },
+  "SDKs": {
+    "title": "SDKs",
+    "href": "#sdks"
+  },
+  "BigDesign": {
+    "title": "Big Design",
+    "href": "#bigdesign"
+  },
+  "Headless Integrations": {
+    "title": "Headless Integrations",
+    "href": "#headless-integrations"
+  },
+  "Theme Resources": {
+    "title": "Theme Resources",
+    "href": "#theme-resources"
+  },
+  "Foundations": {
+    "title": "Foundations",
+    "href": "#foundations"
+  }
+}
