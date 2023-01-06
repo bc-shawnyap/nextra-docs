@@ -39,7 +39,7 @@ const IconCard = ({
   icon: { url },
 }) => {
   return (
-    <div className="relative col-span-12 sm:col-span-4 lg:col-span-3 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col transition text-slate-700 dark:bg-slate-700 dark:text-slate-200">
+    <div className="relative col-span-6 md:col-span-4 xl:col-span-3 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col transition text-slate-700 dark:bg-slate-700 dark:text-slate-200">
       <div className="flex flex-col flex-1 justify-between gap-4 p-5">
         <div className="flex w-[50px] mx-auto dark:bg-slate-100">
           <Image
