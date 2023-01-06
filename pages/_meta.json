@@ -37,14 +37,6 @@
       "Redoc": {
         "title": "Redoc",
         "href": "/specs/redoc"
-      },
-      "Manual": {
-        "title": "Manual",
-        "href": "/manual-docs"
-      },
-      "GH Docs": {
-        "title": "GH Docs",
-        "href": "/docs"
       }
     }
   }

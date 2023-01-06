@@ -14,26 +14,26 @@
   },
   "Api Client": {
     "title": "Api Client",
-    "href": "#api-clients"
+    "href": "/tools/#api-clients"
   },
   "SDKs": {
     "title": "SDKs",
-    "href": "#sdks"
+    "href": "/tools#sdks"
   },
   "BigDesign": {
     "title": "Big Design",
-    "href": "#bigdesign"
+    "href": "/tools#bigdesign"
   },
   "Headless Integrations": {
     "title": "Headless Integrations",
-    "href": "#headless-integrations"
+    "href": "/tools#headless-integrations"
   },
   "Theme Resources": {
     "title": "Theme Resources",
-    "href": "#theme-resources"
+    "href": "/tools#theme-resources"
   },
   "Foundations": {
     "title": "Foundations",
-    "href": "#foundations"
+    "href": "/tools#foundations"
   }
 }
