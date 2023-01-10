@@ -38,7 +38,7 @@ export default function Logo() {
           </g>
         </g>
       </svg>
-      <span className="inline-block ml-2 font-bold my-auto">BigCommerce Docs</span>
+      <span className="inline-block ml-2 font-bold my-auto">Developer</span>
     </>
   );
 }
