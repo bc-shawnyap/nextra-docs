@@ -1,0 +1,6 @@
+/api-docs/* /docs/api-docs/:splat 301
+/stencil-docs/* /docs/stencil-docs/:splat 301
+/bigcommerce-for-wordpress/* /docs/bigcommerce-for-wordpress/:splat 301
+/legacy/* /docs/legacy/:splat 301
+/msf/* /docs/msf/:splat 301
+/partner-apps/* /docs/partner-apps/:splat 301
