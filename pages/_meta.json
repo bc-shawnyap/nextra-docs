@@ -1,26 +1,28 @@
 {
+  "*": {
+    "type": "page"
+  },
   "index": {
     "title": "Introduction",
-    "type": "page",
     "display": "hidden",
     "theme": {
       "layout": "full"
     }
   },
   "docs": {
-    "title": "Docs",
-    "type": "page"
+    "title": "Docs"
   },
   "blog": {
-    "title": "Blog",
-    "type": "page"
+    "title": "Blog"
+  },
+  "specs": {
+    "title": "Specs"
   },
   "about": {
     "display": "hidden"
   },
-  "specs": {
-    "title": "Specs",
-    "type": "page"
+  "tools-resources": {
+    "display": "hidden"
   },
   "documentation": {
     "title": "Demo",
