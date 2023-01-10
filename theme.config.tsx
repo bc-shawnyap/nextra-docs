@@ -24,6 +24,9 @@ const config: DocsThemeConfig = {
   navbar: {
     extraContent: <ExtractedThemeSwitch />,
   },
+  sidebar: {
+    defaultMenuCollapseLevel: 0,
+  },
   banner: {
     dismissible: true,
     key: "new-banner-v1",
